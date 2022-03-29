@@ -1,0 +1,53 @@
+
+WEBPROJEKT EBAY 2.0
+
+ANFORDERUNGEN AN DIE WEBSITE:
+
+(User = Anwender der Software)
+
+- User sollen auf der Website selbstständig Angebote einstellen können => einen neuen Artikel anlegen mit Beschreibung und Bild
+	=> Bild fehlt noch über Schnittstelle (geht das überhaupt?)
+	=> über Website
+	=> Artikel hat mind. Namen, Beschreibung, Bild
+
+- Als User der Website kann man sich alle Artikel ausgeben
+	=> erledigt: Über Schnittstelle 
+	=> über Website
+
+- Als User kann man sich einen einzelnen Artikel ausgeben lassen
+	=> erledigt: über Schnittstelle
+	=> über Website
+
+- Als User kann man einen Artikel löschen
+	=> erledigt: über Schnittstelle
+	=> über Website
+
+- Als User kann man einen bestehenden Artikel modifizieren
+	=> erledigt: über Schnittstelle
+	=> über Website
+
+- Als User kann man nach einem oder mehreren Artikeln suchen
+	=> erledigt: über Schnittstelle
+	=> über Website
+
+- Aktuelle Gebote sollen dargestellt werden / User können sich alle Artikel ausgeben lassen, auf die geboten werden kann
+	=> über Schnittstelle => abgelaufene Artikel in eine extra js-Datei und eine Route machen mit "aktuelle Artikel" und eine mit "verkaufte Artikel"
+	=> über Website
+
+
+- Als User kann man auf einen Artikel bieten / Auf die eingestellten Angebote soll geboten werden können
+	=> über Schnittstelle
+	=> über Website
+
+- Ein Artikel soll als verkauft gekennzeichnet werden (darauf kann nicht mehr geboten werden)
+	=> über Schnittstelle => verkaufte Artikel in Route "verkaufte Artikel" verschieben
+
+- Auf ein Angebot kann maximal 15min geboten werden => danach nicht mehr => gilt dann automatisch als verkauft => in Route "verkaufte Artikel" verschieben
+
+- Ein Artikel kann zum Bieten freigeschaltet werden / Anbieter sollen Zeitraum festlegen können, wann auf einen Artikel geboten werden kann
+	=> über Schnittstelle
+	=> über Website
+
+- neue Gebote von anderen müssen übertragen und jede Minute oder in Echtzeit aktualisiert werden
+	=> über Schnittstelle (Echtzeitaktualisierung?)
+	=> über Website?
