@@ -207,9 +207,9 @@ router.post('/bid', async (req, res) => {
 
   }
 });
-//Gebote müssen sich in Echtzeit/ jede Minute aktualisieren -> Im Frontend mit setTimeout/SetInterval
+//Gebote müssen sich in Echtzeit/ jede Minute aktualisieren -> Im Frontend mit effect setTimeout/SetInterval
 
-//artikel wird nach 15min als verkauft gekennzeichnet -> Schauen was das sinnvollste ist. Im Frontend/Backend realisierbar.
+//artikel wird nach 15min als verkauft gekennzeichnet -> Schauen was das sinnvollste ist. Im Frontend/Backend realisierbar. timestamp
 
 //Registrieren
 //Der User kann sich registrierenVorstellungsrunde
