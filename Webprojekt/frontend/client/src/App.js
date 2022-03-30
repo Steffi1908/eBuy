@@ -6,6 +6,7 @@ import Home from './Components/Home';
 import Login from './Components/Login';
 import SignIn from './Components/SignIn';
 import NewArtikel from './Components/NewArtikel';
+import Bid from './Components/Bid';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
               <Route exact path='/login' component={Login} />
               <Route exact path='/signIn' component={SignIn} />
               <Route exact path='/newArtikel' component={NewArtikel} />
+              <Route exact path='/bid/:articleID' component={Bid} />
             </Switch>
           </main>
       </Router>

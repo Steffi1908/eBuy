@@ -12,6 +12,7 @@ import SvgIcon from '@mui/material/SvgIcon';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
+import { useEffect } from 'react';
 
 function HomeIcon(props) {
   return (
@@ -23,6 +24,29 @@ function HomeIcon(props) {
 
 function NewArtikel() {
 
+  //Fetch für Meine Artikel
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const getArticles = async () => {
+      const config = {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+
+      try {
+        const response = await fetch('http://localhost:1337/article', config);
+
+        setArticles(await response.json());
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getArticles();
+  }, []);
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
@@ -30,13 +54,15 @@ function NewArtikel() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
       const body = {
         title: title,
         description: description,
         price: price,
-        image: image
+        // productImage: formData
       };
+
       const config = {
         method: 'POST',
         headers: {
@@ -45,12 +71,30 @@ function NewArtikel() {
         body: JSON.stringify(body)
       };
 
-      const response = await fetch(`http://localhost:1337/article`, config);
+      const response = await fetch(`http://localhost:1337/article`, config)
+      console.log(response)
+
+      // const formData = new FormData()
+      // formData.append("productImage", image)
+
+      // const configFile = {
+      //   method: 'POST',
+      //   headers: {
+      //     // 'Content-Type': 'application/json'
+      //     "content-type": "multipart/form-data"
+      //   },
+      //   body: formData
+      // };
+
+      // console.log("CONF", configFile)
+
+      // const responseFile = await fetch(`http://localhost:1337/article/file`, configFile)
 
     } catch (error) {
       console.log(error);
     }
   };
+
 
   return (
 
@@ -122,7 +166,7 @@ function NewArtikel() {
           <Button variant="outlined" color="success" type="submit">Artikel aufgeben</Button>
         </Stack>
       </div>
-        <div className='create-container-right'>
+        <div>
           <input onChange={e => setImage(e.target.value)} type="file" accept="image/*"></input>
         </div>
       </form>
