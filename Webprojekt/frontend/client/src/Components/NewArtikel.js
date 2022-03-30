@@ -54,13 +54,15 @@ function NewArtikel() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     try {
       const body = {
         title: title,
         description: description,
         price: price,
-        image: image
+        // productImage: formData
       };
+
       const config = {
         method: 'POST',
         headers: {
@@ -69,7 +71,24 @@ function NewArtikel() {
         body: JSON.stringify(body)
       };
 
-      const response = await fetch(`http://localhost:1337/article`, config);
+      const response = await fetch(`http://localhost:1337/article`, config)
+      console.log(response)
+
+      // const formData = new FormData()
+      // formData.append("productImage", image)
+
+      // const configFile = {
+      //   method: 'POST',
+      //   headers: {
+      //     // 'Content-Type': 'application/json'
+      //     "content-type": "multipart/form-data"
+      //   },
+      //   body: formData
+      // };
+
+      // console.log("CONF", configFile)
+
+      // const responseFile = await fetch(`http://localhost:1337/article/file`, configFile)
 
     } catch (error) {
       console.log(error);

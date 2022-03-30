@@ -37,6 +37,7 @@ function Article({article}) {
     getImage();
   }, []);
 
+
   return (
 
     <Card
@@ -56,7 +57,7 @@ function Article({article}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button Primary to={'/Bid'} component={Link} size="small">Bieten</Button>
+        <Link to={'/Bid/' + article._id }><Button Primary size="small">Bieten</Button></Link>
       </CardActions>
     </Card>
 

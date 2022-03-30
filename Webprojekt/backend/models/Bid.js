@@ -15,11 +15,7 @@ const BidSchema = mongoose.Schema({
     price: {
        type: Number,
        required: true
-   },
-    date: {
-        type: Date,
-        default: Date.now 
-    }
-});
+   }
+}, { timestamps: true });
 
 module.exports = mongoose.model('Bid', BidSchema);         //dies sieht man dann in der Datenbank als "Bid"
