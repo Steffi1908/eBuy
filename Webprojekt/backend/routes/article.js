@@ -99,21 +99,67 @@ router.get('/:articleID', async (req, res) => {
 //ein Bild kann hochgeladen werden
 //console.log(req.body) => zum Testen - dann wird das, was bei Postman eingegeben wurde, auf der Konsole ausgegeben
 
-router.post('/', upload.single('productImage'), async (req, res) => {     //single = man kann nur ein File parsen
-  //console.log(req.file);
 
+// const file = req.files.file;
+//     const filename = req.body.newName;
+//     const newpath = __dirname + "/public/pic/";
 
+//     file.mv(`${newpath}${filename}`, (err) => {
+//         if (err) {
+//             res.status(500).json({ loginFlag: true, message: "File upload failed", code: 200 });
+//             return;
+//         }
+//         res.status(200).json({ loginFlag: true, message: "File Uploaded", code: 200 });
+//         return;
+//     });
+
+router.post('/', async (req, res) => {     //single = man kann nur ein File parsen
   try {
-
     const article = new Article({
       title: req.body.title,
       description: req.body.description,
       price: req.body.price,
-      productImage: req.file.path                   //geht durch multer => damit speichern wir die Bildinformation in der DB
+      // productImage: ""                   //geht durch multer => damit speichern wir die Bildinformation in der DB
     });
 
     const savedArticle = await article.save();
     res.json(savedArticle);
+  } catch (err) {
+    console.log(err)
+    res.json({ message: err });
+  }
+});
+
+
+router.post('/file', async (req, res) => {     //single = man kann nur ein File parsen
+  console.log("HELLO FILE")
+  console.log(req.body)
+  console.log(req.files);
+
+  const file = req.files.file;
+  const filename = req.body.newName;
+  const newpath = __dirname + "/public/pic/";
+
+  file.mv(`${newpath}${filename}`, (err) => {
+      if (err) {
+          res.status(500).json({ loginFlag: true, message: "File upload failed", code: 200 });
+          return;
+      }
+      res.status(200).json({ loginFlag: true, message: "File Uploaded", code: 200 });
+      return;
+  });
+
+
+  try {
+    // const article = new Article({
+    //   title: req.body.title,
+    //   description: req.body.description,
+    //   price: req.body.price,
+    //   productImage: req.file.path                   //geht durch multer => damit speichern wir die Bildinformation in der DB
+    // });
+
+    // const savedArticle = await article.save();
+    res.json("SUCCESS");
   } catch (err) {
     console.log(err)
     res.json({ message: err });
@@ -189,14 +235,41 @@ router.get('/search/available', async (req, res) => {
   }
 });
 
+
+//TODO get for bid !!!
+
 //alle user können ein gebot auf einen artikel abgeben(, wenn sie eingeloggt sind)
 router.post('/bid', async (req, res) => {
-  //console.log(req.file);
+  const { articleID, price } = req.body
+
+  //Check, ob das Angebot verfügbar ist 
+  const article = await Article.findById(articleID)
+  
+  //check, ob 15 min vorbei sind 
+  const startDate = article.date
+  const endDate = new Date(new Date(startDate).getTime() + 1000 * 60 * 15)
+  if (endDate < new Date()) {
+    console.log("AGEBLAUFEN")
+    return res.status(500).send("Error - Das Gebot ist bereits abgelaufen")
+  }
+
+  //Check, ob voheriges Gebot und Artikelpreis höher sind
+  if (article.price > price) {
+    console.log("STARTGEBOT")
+    return res.status(500).send("Error - Gebot muss höher sein als Startgebot")
+  }
+
+  const bidList = await Bid.find({ articleID: articleID })
+  if (bidList && bidList[bidList.length - 1] && bidList[bidList.length - 1].price >= price) {
+    console.log("GEBOT MUSS HÖHER SEIN")
+    return res.status(500).send("Error - Gebot muss höher sein als aktuelles Gebot")
+  }
+
+
   const bid = new Bid({
-    articleID: req.body.articleID,
-    userID: req.body.userID,
-    price: req.body.price,
-    date: req.body.date
+    articleID: articleID,
+    userID: 1,
+    price: price
   });
 
   try {

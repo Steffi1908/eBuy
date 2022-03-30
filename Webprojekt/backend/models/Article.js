@@ -20,7 +20,7 @@ const ArticleSchema = mongoose.Schema({
 
    productImage: {
        type: String,        //da es sich um eine URL handelt
-       required: true
+    //    required: true
    },
 
     date: {
@@ -32,6 +32,6 @@ const ArticleSchema = mongoose.Schema({
         type: Number,
         default: -1
     }
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Article', ArticleSchema);         //dies sieht man dann in der Datenbank als "Article"

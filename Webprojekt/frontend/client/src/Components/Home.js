@@ -2,9 +2,6 @@ import * as React from 'react';
 import './Home.css';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import Article from './Article';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
@@ -13,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
-import CardMedia from '@mui/material/CardMedia';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
@@ -55,6 +51,10 @@ function Home() {
     };
     getArticles();
   }, []);
+  
+  const [searchInput, setSearchInput] = useState('');
+
+  
 
 // Such- Button
   const Search = styled('div')(({ theme }) => ({
@@ -98,6 +98,7 @@ function Home() {
       }
     }
   }));
+  
 
 // Footer
   const footers = [
@@ -131,7 +132,8 @@ function Home() {
         <a href="https://www.planb.net/">Impressum</a>]
     }];
 
-  return (
+
+    return (
     <React.Fragment>
       {console.log(articles)}
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />

@@ -20,6 +20,7 @@
     "react-router-dom": "^5.3.0",
     "react-router-loading": "^0.4.1",
     "react-scripts": "^5.0.0",
+    "styled-component": "^2.8.0",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
