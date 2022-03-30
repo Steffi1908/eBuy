@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
-
 //Schema erstellen - damit wird festgelegt, wie ein Artikel aussieht
-
 
 const ArticleSchema = mongoose.Schema({
     title: {

@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 //Schema erstellen - damit wird festgelegt, wie ein Gebot aussieht
 
-
 const BidSchema = mongoose.Schema({
     articleID: {
         type: String,

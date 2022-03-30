@@ -30,6 +30,36 @@ function HomeIcon(props) {
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
 function CreateArtikel() {
+
+  const [title, deleteTitle] = useState('');
+  const [description, deleteDescription] = useState('');
+  const [price, deletePrice] = useState(0);
+  const [image, deleteImage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const body = {
+        title: title,
+        description: description,
+        price: price,
+        image: image
+      };
+      const config = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      };
+
+      const response = await fetch(`http://localhost:1337/createarticle`, config);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
 
 
@@ -72,7 +102,7 @@ function CreateArtikel() {
         </Typography>
       </Container>
 
-
+      <form onSubmit={handleSubmit}>
       <Container sx={{ py: 2 }} maxWidth="none">
         <Grid container spacing={7}>
           {cards.map((card) => (
@@ -95,7 +125,7 @@ function CreateArtikel() {
                 </CardContent>
                 <Box
                   sx={{ '& > :not(style)': { m: 2, }, }}>
-                  <DeleteIcon fontSize="medium" color="action" />
+                  <DeleteIcon onChange={e => deleteImage(e.target.value)} fontSize="medium" color="action" />
                   <CreateIcon fontSize="medium" color="action" />
                 </Box>
               </Card>
@@ -103,7 +133,7 @@ function CreateArtikel() {
           ))}
         </Grid>
       </Container>
-
+      </form>       
 
 
     </React.Fragment>

@@ -4,13 +4,47 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv/config');
+const expressLayouts = require('express-ejs-layouts');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 //execute package
 const app = express();
 
+// Passport Config
+require('./config/passport')(passport);
+
 //Verbindung zu frontend
 path = require('path'); 
 app.use('/', express.static(path.join(__dirname, 'client')));
+
+// EJS
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
+
+// Express body parser
+app.use(express.urlencoded({ extended: true }));
+
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+// Connect flash
+app.use(flash());
+
+// Global variables
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
 
 //middleware für cors
 app.use(cors());
@@ -25,6 +59,10 @@ app.use('/article', articleRoute);                   //jedes Mal, wenn man auf d
 
 //Route "uploads" verfügbar machen
 app.use('/uploads', express.static('uploads'));
+// Routes
+app.use('/', require('./routes/index.js'));
+app.use('/users', require('./routes/users.js'));
+
 
 //middlewares => Funktionen, die greifen, sobald man eine Route aufruft (z.B. /articles)
 //damit kann man bspw. feststellen, ob ein User authentifiziert ist, wenn er eine Route besucht (index.use(auth);)

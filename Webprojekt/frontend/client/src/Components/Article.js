@@ -10,8 +10,9 @@ function Article({article}) {
   
 //Image vom Backend
 
-//V1
-/*export async function get(url: string) {
+//Versuch 1
+/*
+export async function get(url: string) {
   try {
       const response = await fetch(http://localhost:1337/article/images/${imagePath}, {
           method: 'GET', // *GET, POST, PUT, DELETE, etc.
@@ -50,10 +51,11 @@ useEffect(() => {
 return <div>
   <img src={screenShot} className="Screenshot" alt="showing screen capture" />
 </div>
-} */
+} 
+*/
 
 
-//V2
+//Versuch 2
 /*
   const [image, setImage] = useState("");
 
@@ -83,7 +85,8 @@ return <div>
       }
     };
     getImage();
-  }, []);*/
+  }, []);
+  */
 
 
 //Echtzeit aktualisierung
