@@ -37,6 +37,33 @@ function Article({article}) {
     getImage();
   }, []);
 
+  const [title, deleteTitle] = useState('');
+  const [description, deleteDescription] = useState('');
+  const [price, deletePrice] = useState(0);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const body = {
+        title: title,
+        description: description,
+        price: price,
+        image: image
+      };
+      const config = {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      };
+
+      const response = await fetch(`http://localhost:1337/articles`, config);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
 
@@ -48,6 +75,7 @@ function Article({article}) {
         image={image}
         alt="random"
       />
+      <form onSubmit={handleSubmit}>
       <CardContent sx={{ flexGrow: 1 }}>
         <Typography gutterBottom variant="h5" component="h2">
           {article.title}
@@ -58,8 +86,12 @@ function Article({article}) {
       </CardContent>
       <CardActions>
         <Link to={'/Bid/' + article._id }><Button Primary size="small">Bieten</Button></Link>
+        <Button onChange={e => deleteTitle(e.target.value)}>Löschen</Button>
+        <Button Primary to={'/NewArtikel'} component={Link}>Bearbeiten</Button>
       </CardActions>
+      </form>
     </Card>
+    
 
 
   );

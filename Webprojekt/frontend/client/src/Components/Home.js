@@ -51,6 +51,10 @@ function Home() {
     };
     getArticles();
   }, []);
+  
+  const [searchInput, setSearchInput] = useState('');
+
+  
 
 // Such- Button
   const Search = styled('div')(({ theme }) => ({
@@ -94,6 +98,7 @@ function Home() {
       }
     }
   }));
+  
 
 // Footer
   const footers = [
@@ -127,7 +132,8 @@ function Home() {
         <a href="https://www.planb.net/">Impressum</a>]
     }];
 
-  return (
+
+    return (
     <React.Fragment>
       {console.log(articles)}
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />

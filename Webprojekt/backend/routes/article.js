@@ -242,10 +242,10 @@ router.get('/search/available', async (req, res) => {
 router.post('/bid', async (req, res) => {
   const { articleID, price } = req.body
 
-  //check if angebot is available
+  //Check, ob das Angebot verfügbar ist 
   const article = await Article.findById(articleID)
   
-  //check if 15 min are over
+  //check, ob 15 min vorbei sind 
   const startDate = article.date
   const endDate = new Date(new Date(startDate).getTime() + 1000 * 60 * 15)
   if (endDate < new Date()) {
@@ -253,7 +253,7 @@ router.post('/bid', async (req, res) => {
     return res.status(500).send("Error - Das Gebot ist bereits abgelaufen")
   }
 
-  //check if previous bid is higher and higher then article.price
+  //Check, ob voheriges Gebot und Artikelpreis höher sind
   if (article.price > price) {
     console.log("STARTGEBOT")
     return res.status(500).send("Error - Gebot muss höher sein als Startgebot")
