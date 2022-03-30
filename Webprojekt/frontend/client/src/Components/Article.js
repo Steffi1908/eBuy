@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Article({article}) {
 
@@ -55,7 +56,7 @@ function Article({article}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Bieten</Button>
+        <Button Primary to={'/Bid'} component={Link} size="small">Bieten</Button>
       </CardActions>
     </Card>
 
