@@ -48,8 +48,10 @@ router.get('/', async (req, res) => {
     const article = await Article.find();
     article.map;
     res.json(article);
+    throw "Err 1";
   } catch (err) {
-    res.json({ message: err 1});
+    res.json({ message: err});
+    alert(err);
   }
 });
 
@@ -63,9 +65,11 @@ router.get('/images/:filepath', async (req, res) => {
     console.log(req.params.filepath)
     const filepath = path.join(__dirname, '../uploads', req.params.filepath);
     res.sendFile(filepath)
+    throw "Err 2";
   } catch (err) {
     console.log(err)
-    res.json({ message: err 2});
+    res.json({ message: err});
+    alert(err);
   }
 });
 
@@ -84,8 +88,10 @@ router.get('/:articleID', async (req, res) => {
   try {
     const article = await Article.findById(req.params.articleID);
     res.json(article);
+    throw "Err 3";
   } catch (err) {
-    res.json({ message: err 3});
+    res.json({ message: err});
+    alert(err);
   }
 });
 
@@ -126,9 +132,11 @@ router.post('/', async (req, res) => {     //single = man kann nur ein File pars
 
     const savedArticle = await article.save();
     res.json(savedArticle);
+    throw "Err 4";
   } catch (err) {
     console.log(err)
-    res.status(400).json({ message: err 4});
+    res.status(400).json({ message: err});
+    alert(err);
   }
 });
 
@@ -162,10 +170,11 @@ router.post('/file', async (req, res) => {     //single = man kann nur ein File 
 
     // const savedArticle = await article.save();
     res.json("SUCCESS");
+    throw "Err 5";
   } catch (err) {
     console.log(err)
-    res.json({ message: err 5});
-
+    res.json({ message: err});
+    alert(err);
   }
 });
 
@@ -193,9 +202,11 @@ router.patch('/:articleID', async (req, res) => {
         }
       });
     res.json(modifiedArticle);
+    throw "Err 6";
   } catch (err) {
     console.log(err);
-    res.status(400).json({ message: err 6});
+    res.status(400).json({ message: err});
+    alert(err);
   }
 });
 
@@ -207,8 +218,10 @@ router.delete('/:articleID', async (req, res) => {
     console.log(req.params)
     const deletedArticle = await Article.remove({ _id: req.params.articleID });
     res.json(deletedArticle);
+    throw "Err 7";
   } catch (err) {
-    res.json({ message: err 7});
+    res.json({ message: err});
+    alert(err);
   }
 });
 
@@ -220,8 +233,10 @@ router.get('/search/:title', async (req, res) => {
     await Article.find({ title: regex }).then((result) => {
       res.status(200).json(result);
     });
+    throw "Err 8";
   } catch (err) {
-    res.json({ message: err 8});
+    res.json({ message: err});
+    alert(err);
   }
 });
 
@@ -233,8 +248,10 @@ router.get('/search/available', async (req, res) => {
     await Article.find({ available: 1 }).then((result) => {
       res.status(200).json(result);
     });
+    throw "Err 9";
   } catch (err) {
-    res.json({ message: err 9});
+    res.json({ message: err});
+    alert(err);
   }
 });
 
@@ -288,8 +305,10 @@ router.post('/bid', async (req, res) => {
   try {
     const savedBid = await bid.save();
     res.json(savedBid);
+    throw "Err 10";
   } catch (err) {
-    res.json({ message: err 10});
+    res.json({ message: err});
+    alert(err);
 
   }
 });
