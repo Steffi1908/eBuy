@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94b8595a-740c-46be-b65e-6c25ceaec7f0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/eBuy-main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Anforderungen_Website.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/models/Article.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/models/Bid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/models/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/routes/article.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/routes/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/routes/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/routes/verifyToken.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/routes/verkaufteArtikel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/uploads/2022-02-06T10-31-23.208ZTestbild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/uploads/2022-02-06T10-31-54.810ZTestbild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/uploads/2022-02-06T10-40-50.798ZTestbild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/uploads/2022-02-08T18-36-54.836ZTestbild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/uploads/2022-02-08T18-41-41.460ZTestbild.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/uploads/2022-03-28T20-06-25.389Zimage-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/uploads/2022-03-28T20-07-02.717Zimage-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/backend/uploads/2022-03-28T20-07-29.767Zimage-9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/public/images/Skript und Ubungen_short.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/Components/Article.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/Components/Bid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/Components/CreateArtikel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/Components/Home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/Components/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/Components/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/Components/NewArtikel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/Components/SignIn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/images/product-default-image.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/client/src/setupTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Webprojekt/frontend/package-lock.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="279WqyZgXRLRb1x9IJ7awyUr0mj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Webprojekt/frontend/client/src/images" />
+      <recent name="$PROJECT_DIR$/Webprojekt/frontend/client/src/product-default-image" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="94b8595a-740c-46be-b65e-6c25ceaec7f0" name="Default Changelist" comment="" />
+      <created>1648732976705</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648732976705</updated>
+      <workItem from="1648732977757" duration="6414000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="4373" y="319" width="596" height="534" key="find.popup" timestamp="1648737992798">
+      <screen x="3712" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4373" y="319" width="596" height="534" key="find.popup/3712.0.1920.1080/0.25.1792.1095/1792.25.1920.1055@3712.0.1920.1080" timestamp="1648737992798" />
+    <state x="4337" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1648733451973">
+      <screen x="3712" y="0" width="1920" height="1080" />
+    </state>
+    <state x="4337" y="241" width="670" height="676" key="search.everywhere.popup/3712.0.1920.1080/0.25.1792.1095/1792.25.1920.1055@3712.0.1920.1080" timestamp="1648733451973" />
+  </component>
+</project>
