@@ -250,6 +250,15 @@ function Article({ article, setArticles }) {
       }
     };
 
+    const [isOpen, setIsOpen] = useState(false);
+    const openModal = () => {
+      setIsOpen(true);
+    }
+  
+    const closeModal = () => {
+      setIsOpen(false);
+    }
+
     return (
 
       <>
@@ -269,8 +278,8 @@ function Article({ article, setArticles }) {
               <Typography>
                 {article.description}
               </Typography>
-              <Typography><h3>
-                {article.price} €</h3>
+              <Typography><h3>Startpreis: ´
+                {article.price} €´</h3>
               </Typography>
             </CardContent>
             <CardActions>
@@ -361,13 +370,30 @@ function Article({ article, setArticles }) {
                   </TableContainer>
                   <form onSubmit={handleBidSubmit}>
                     <div className='create-container'>
-                      <h2>Beschreibung:</h2>
+                      <h2>Biete jetzt:</h2>
+                      <p>Beachte, dass dein Gebot höher als der Startpreis und höher als die bisherigen Gebote sein muss!</p>
                       <TextField onChange={e => setBid(e.target.value)} id="outlined-multiline-static"
                                  label="Dein Gebot"
-                                 variant="outlined" type="Number" />
+                                 variant="outlined" type="Number" /><p></p>
 
-                      <p>BILD</p>
-                      <Button className="button" variant="outlined" color="success" type="submit">Gebot abgeben</Button>
+                      
+                      <Button className="button" onClick={openModal} variant="outlined" color="success" type="submit">Gebot abgeben</Button>
+                      <div>
+      {isOpen && (
+        <>
+          <div className="overlay"></div>
+          <div className="modal">
+            <header className="modal__header">
+              <h3>EbuY - Dein Gebot wurde abgeschickt</h3>
+              <button onClick={closeModal} className="close-button">&times;</button>
+            </header>
+            <main className="modal__main">
+              <p>Drücke erneut "Bieten", um alle Gebote zu diesem Artikel zu sehen!</p>
+            </main>
+          </div>
+        </>
+      )}
+    </div>
                     </div>
                   </form>
                 </main>
