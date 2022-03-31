@@ -103,7 +103,6 @@ function Bid() {
           <TextField onChange={e => setPrice(e.target.value)} id="outlined-multiline-static" label="Dein Gebot"
             variant="outlined" type="Number" />
 
-          <p>BILD</p>
           <Button className="button" onClick={openModal} variant="outlined" color="success" type="submit">Gebot abgeben</Button>
       </div>
 

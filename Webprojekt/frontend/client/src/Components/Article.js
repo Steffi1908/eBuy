@@ -278,8 +278,8 @@ function Article({ article, setArticles }) {
               <Typography>
                 {article.description}
               </Typography>
-              <Typography><h3>
-                {article.price} €</h3>
+              <Typography><h3>Startpreis: ´
+                {article.price} €´</h3>
               </Typography>
             </CardContent>
             <CardActions>
@@ -370,13 +370,24 @@ function Article({ article, setArticles }) {
                   </TableContainer>
                   <form onSubmit={handleBidSubmit}>
                     <div className='create-container'>
+<<<<<<< HEAD
                       <h2>Jetzt bieten:</h2>
+=======
+                      <h2>Biete jetzt:</h2>
+                      <p>Beachte, dass dein Gebot höher als der Startpreis und höher als die bisherigen Gebote sein muss!</p>
+>>>>>>> Eva
                       <TextField onChange={e => setBid(e.target.value)} id="outlined-multiline-static"
                                  label="Dein Gebot"
                                  variant="outlined" type="Number" /><p></p>
 
+<<<<<<< HEAD
                       <Button className="button" onClick={openModal} variant="outlined" color="success" type="submit">Gebot abgeben</Button>
                       <div> 
+=======
+                      
+                      <Button className="button" onClick={openModal} variant="outlined" color="success" type="submit">Gebot abgeben</Button>
+                      <div>
+>>>>>>> Eva
       {isOpen && (
         <>
           <div className="overlay"></div>
@@ -386,7 +397,11 @@ function Article({ article, setArticles }) {
               <button onClick={closeModal} className="close-button">&times;</button>
             </header>
             <main className="modal__main">
+<<<<<<< HEAD
               <p>Drücke erneut auf "Bieten" um alle Gebote zu diesem Artikel zu sehen!</p>
+=======
+              <p>Drücke erneut "Bieten", um alle Gebote zu diesem Artikel zu sehen!</p>
+>>>>>>> Eva
             </main>
           </div>
         </>
