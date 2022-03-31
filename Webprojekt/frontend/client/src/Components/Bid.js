@@ -49,6 +49,15 @@ function Bid() {
     }
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => {
+    setIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
+
   return (
 
     // Header
@@ -95,8 +104,25 @@ function Bid() {
             variant="outlined" type="Number" />
 
           <p>BILD</p>
-          <Button onClick={handleSubmit}>Gebot abgeben</Button>
-        </div>
+          <Button className="button" onClick={openModal} variant="outlined" color="success" type="submit">Gebot abgeben</Button>
+      </div>
+
+      <div className="App">
+      {isOpen && (
+        <>
+          <div className="overlay"></div>
+          <div className="modal">
+            <header className="modal__header">
+              <h3>EbuY - Es hat alles geklappt</h3>
+              <button onClick={closeModal} className="close-button">&times;</button>
+            </header>
+            <main className="modal__main">
+              <p>Dein Gebot wurde abgeschickt!</p>
+            </main>
+          </div>
+        </>
+      )}
+    </div>
       </form>
 
     </React.Fragment>
