@@ -259,6 +259,17 @@ function Article({ article, setArticles }) {
       setIsOpen(false);
     }
 
+    const date = article.date
+
+  const startDate = article.date
+  const endDate = new Date(new Date(startDate).getTime() + 1000 * 60 * 15)
+  let dateInfo
+  if (endDate < new Date()) {
+    dateInfo = "AGEBLAUFEN"
+  } else {
+    dateInfo = "Gebot läuft noch bis " + endDate.toLocaleString()
+  }
+
     return (
 
       <>
@@ -280,6 +291,9 @@ function Article({ article, setArticles }) {
               </Typography>
               <Typography><h3>Startpreis: ´
                 {article.price} €´</h3>
+              </Typography>
+              <Typography>
+                {dateInfo}
               </Typography>
             </CardContent>
             <CardActions>
