@@ -8,7 +8,32 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Article({article}) {
+  
+//Echtzeit aktualisierung
+useEffect(() => {
+  const intervalId = setInterval(() => {  //assign interval to a variable to clear it.
+    setState(state => ({ data: state.data, error: false, loading: true }))
+    fetch('http://localhost:1337/article')
+      .then(data => data.json())
+      .then(obj =>
+        Object.keys(obj).map(key => {
+          let newData = obj[key]
+          newData.key = key
+          return newData
+        })
+     )
+     .then(newData => setState({ data: newData, error: false, loading: false }))
+     .catch(function(error) {
+        console.log(error)
+        setState({ data: null, error: true, loading: false })
+     })
+  }, 5000)
 
+  return () => clearInterval(intervalId); //This is important
+  
+ //Image
+ 
+}, ['http://localhost:1337/article', useState])
   const [image, setImage] = useState("");
 
   useEffect(() => {
