@@ -13,6 +13,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import { useEffect } from 'react';
+import FileBase64 from 'react-filebase64';
 
 
 function HomeIcon(props) {
@@ -61,7 +62,7 @@ function NewArtikel() {
         title: title,
         description: description,
         price: price,
-        // productImage: formData
+        productImage: image
       };
 
       const config = {
@@ -171,7 +172,8 @@ function NewArtikel() {
             />
         </Box>
         <div>
-          <input onChange={e => setImage(e.target.value)} type="file" accept="image/*"></input>
+          <FileBase64  multiple={ false }
+                       onDone={(base64) => setImage(base64) } />
         </div>
         <br />
         <Stack spacing={2} direction="row">
