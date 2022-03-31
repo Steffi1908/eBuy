@@ -131,7 +131,7 @@ router.post('/', async (req, res) => {     //single = man kann nur ein File pars
 });
 
 
-router.post('/file', async (req, res) => {     //single = man kann nur ein File parsen
+router.post('/file', async (req, res) => {    
   console.log("HELLO FILE")
   console.log(req.body)
   console.log(req.files);
@@ -237,8 +237,18 @@ router.get('/search/available', async (req, res) => {
 
 
 //TODO get for bid !!!
+/*router.get('/bid', async (req, res) => {
+  try {
+    var regex = new RegExp({_id: req.params.articleID});
+    await Article.find({ articleID: regex }).then((result) => {
+      res.status(200).json(result);
+    });
+  } catch (err) {
+    res.json({ message: err });
+  }
+}); */
 
-//alle user können ein gebot auf einen artikel abgeben(, wenn sie eingeloggt sind)
+//alle user können ein gebot auf einen artikel abgeben
 router.post('/bid', async (req, res) => {
   const { articleID, price } = req.body
 
