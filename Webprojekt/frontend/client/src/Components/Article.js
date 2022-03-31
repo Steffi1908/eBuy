@@ -250,6 +250,15 @@ function Article({ article, setArticles }) {
       }
     };
 
+    const [isOpen, setIsOpen] = useState(false);
+    const openModal = () => {
+      setIsOpen(true);
+    }
+  
+    const closeModal = () => {
+      setIsOpen(false);
+    }
+
     return (
 
       <>
@@ -361,13 +370,28 @@ function Article({ article, setArticles }) {
                   </TableContainer>
                   <form onSubmit={handleBidSubmit}>
                     <div className='create-container'>
-                      <h2>Beschreibung:</h2>
+                      <h2>Jetzt bieten:</h2>
                       <TextField onChange={e => setBid(e.target.value)} id="outlined-multiline-static"
                                  label="Dein Gebot"
-                                 variant="outlined" type="Number" />
+                                 variant="outlined" type="Number" /><p></p>
 
-                      <p>BILD</p>
-                      <Button className="button" variant="outlined" color="success" type="submit">Gebot abgeben</Button>
+                      <Button className="button" onClick={openModal} variant="outlined" color="success" type="submit">Gebot abgeben</Button>
+                      <div> 
+      {isOpen && (
+        <>
+          <div className="overlay"></div>
+          <div className="modal">
+            <header className="modal__header">
+              <h3>EbuY - Dein Gebot wurde abgeschickt</h3>
+              <button onClick={closeModal} className="close-button">&times;</button>
+            </header>
+            <main className="modal__main">
+              <p>Drücke erneut auf "Bieten" um alle Gebote zu diesem Artikel zu sehen!</p>
+            </main>
+          </div>
+        </>
+      )}
+    </div>
                     </div>
                   </form>
                 </main>

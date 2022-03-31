@@ -16,6 +16,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import { useEffect, useState } from 'react';
+import AddIcon from '@material-ui/icons/Add';
 
 // Copyright im Footer erstellen 
 function Copyright(props) {
@@ -169,6 +170,10 @@ function Home({history}) {
           <h2>E</h2><h4>bu</h4><h2>Y</h2>
           <Typography variant="h6" color="#468a84" noWrap sx={{ flexGrow: 1 }}>
           </Typography>
+          <Button to={'/NewArtikel'} component={Link}
+            sx={{ '& > :not(style)': { m: 2, }, }}>
+            <AddIcon fontSize="large" color="action" />
+          </Button>
           <Button variant="outlined" Primary to={'/CreateArtikel'} component={Link}> Meine Artikel
           </Button>
           <Search>
