@@ -49,7 +49,7 @@ router.get('/', async (req, res) => {
     article.map;
     res.json(article);
   } catch (err) {
-    res.json({ message: err 1 });
+    res.json({ message: err });
   }
 });
 
@@ -65,7 +65,7 @@ router.get('/images/:filepath', async (req, res) => {
     res.sendFile(filepath)
   } catch (err) {
     console.log(err)
-    res.json({ message: err 2 });
+    res.json({ message: err });
   }
 });
 
@@ -85,7 +85,7 @@ router.get('/:articleID', async (req, res) => {
     const article = await Article.findById(req.params.articleID);
     res.json(article);
   } catch (err) {
-    res.json({ message: err 3});
+    res.json({ message: err });
   }
 });
 
@@ -126,7 +126,7 @@ router.post('/', async (req, res) => {     //single = man kann nur ein File pars
     res.json(savedArticle);
   } catch (err) {
     console.log(err)
-    res.json({ message: err 4});
+    res.json({ message: err });
   }
 });
 
@@ -162,7 +162,7 @@ router.post('/file', async (req, res) => {     //single = man kann nur ein File 
     res.json("SUCCESS");
   } catch (err) {
     console.log(err)
-    res.json({ message: err 5});
+    res.json({ message: err });
 
   }
 });
@@ -179,7 +179,7 @@ router.post('/file', async (req, res) => {     //single = man kann nur ein File 
     }
 }); */
 
-//Hier wird festgelegt, dass dder Artikel verändert werden kann
+//Hier wird festgelegt, dass die Artikelbezeichnung verändert werden kann
 //artikel muss als "verkauft" gekennzeichnet werden können -> -1 -> Übersetzung Frontend
 //artikel kann zum bieten freigeschalten werden -> -1 -> Übersetzung Frontend (Wird User nicht angezeigt)
 router.patch('/:articleID', async (req, res) => {
@@ -194,7 +194,7 @@ router.patch('/:articleID', async (req, res) => {
     res.json(modifiedArticle);
   } catch (err) {
     console.log(err);
-    res.json({ message: err 6});
+    res.json({ message: err });
   }
 });
 
@@ -205,7 +205,7 @@ router.delete('/:articleID', async (req, res) => {
     const deletedArticle = await Article.remove({ _id: req.params.articleID });
     res.json(deletedArticle);
   } catch (err) {
-    res.json({ message: err 7});
+    res.json({ message: err });
   }
 });
 
@@ -218,7 +218,7 @@ router.get('/search/:title', async (req, res) => {
       res.status(200).json(result);
     });
   } catch (err) {
-    res.json({ message: err 8});
+    res.json({ message: err });
   }
 });
 
@@ -231,7 +231,7 @@ router.get('/search/available', async (req, res) => {
       res.status(200).json(result);
     });
   } catch (err) {
-    res.json({ message: err 9});
+    res.json({ message: err });
   }
 });
 
@@ -266,7 +266,7 @@ router.post('/bid', async (req, res) => {
     return res.status(500).send("Error - Gebot muss höher sein als aktuelles Gebot")
   }
 
-//Gebot erstellen
+
   const bid = new Bid({
     articleID: articleID,
     userID: 1,
@@ -277,7 +277,7 @@ router.post('/bid', async (req, res) => {
     const savedBid = await bid.save();
     res.json(savedBid);
   } catch (err) {
-    res.json({ message: err 10});
+    res.json({ message: err });
 
   }
 });
