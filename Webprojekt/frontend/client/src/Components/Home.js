@@ -26,7 +26,7 @@ function Copyright(props) {
   );
 }
 
-function Home() {
+function Home({history}) {
 
   const [articles, setArticles] = useState([]);
 
@@ -41,16 +41,38 @@ function Home() {
 
       try {
         const response = await fetch('http://localhost:1337/article', config);
-
         setArticles(await response.json());
       } catch (error) {
         console.log(error);
       }
     };
     getArticles();
-  }, []);
-  
+  }, [history]);
 
+  useEffect(() => {
+
+    const intervalId = setInterval(() => {
+
+      const getArticles = async () => {
+        const config = {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        };
+
+        try {
+          const response = await fetch('http://localhost:1337/article', config);
+
+          setArticles(await response.json());
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getArticles();
+    }, 8000)
+    return () => clearInterval(intervalId);
+  }, []);
 
   
 
@@ -177,7 +199,7 @@ function Home() {
         <Grid container spacing={7}>
           {articles.length !== 0 && articles.map((article) => (
             <Grid item xs={12} sm={4} md={3} height={"100%"}>
-              <Article article={article} />
+              <Article article={article} setArticles={setArticles}/>
             </Grid>
           ))}
         </Grid>

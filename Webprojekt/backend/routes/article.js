@@ -115,18 +115,20 @@ router.get('/:articleID', async (req, res) => {
 
 router.post('/', async (req, res) => {     //single = man kann nur ein File parsen
   try {
+    console.log("req.body")
+    console.log(req.body)
     const article = new Article({
       title: req.body.title,
       description: req.body.description,
       price: req.body.price,
-      // productImage: ""                   //geht durch multer => damit speichern wir die Bildinformation in der DB
+      productImage: req.body.productImage.base64                  //geht durch multer => damit speichern wir die Bildinformation in der DB
     });
 
     const savedArticle = await article.save();
     res.json(savedArticle);
   } catch (err) {
     console.log(err)
-    res.json({ message: err });
+    res.status(400).json({ message: err });
   }
 });
 
@@ -187,14 +189,13 @@ router.patch('/:articleID', async (req, res) => {
     const modifiedArticle = await Article.updateOne({ _id: req.params.articleID },
       {
         $set: {
-          title: req.body.title, description: req.body.description, price: req.body.price,
-          date: req.body.date, productImage: req.file.path, available: req.body.available
+          title: req.body.title, description: req.body.description, price: req.body.price
         }
       });
     res.json(modifiedArticle);
   } catch (err) {
     console.log(err);
-    res.json({ message: err });
+    res.status(400).json({ message: err });
   }
 });
 
@@ -202,6 +203,8 @@ router.patch('/:articleID', async (req, res) => {
 //Einen vorhanden Artikel löschen
 router.delete('/:articleID', async (req, res) => {
   try {
+    console.log("req.params")
+    console.log(req.params)
     const deletedArticle = await Article.remove({ _id: req.params.articleID });
     res.json(deletedArticle);
   } catch (err) {
@@ -237,7 +240,16 @@ router.get('/search/available', async (req, res) => {
 
 
 //TODO get for bid !!!
-
+router.get('/bid/:idArticle', async (req, res) => {
+  try {
+    const idArticle = req.params.idArticle;
+    console.log(idArticle)
+    const bids = await Bid.find({articleID: idArticle}).sort({price: -1})
+    res.json(bids);
+  } catch (error) {
+    res.status(400).json({ message: error });
+  }
+});
 
 //alle user können ein gebot auf einen artikel abgeben(, wenn sie eingeloggt sind)
 router.post('/bid', async (req, res) => {
