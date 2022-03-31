@@ -28,8 +28,6 @@ function Copyright(props) {
 
 function Home() {
 
-  // Array für Bilder
-  const cards = [1, 2, 3, 4, 5, 6, 7, 8];
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -52,7 +50,7 @@ function Home() {
     getArticles();
   }, []);
   
-  const [searchInput, setSearchInput] = useState('');
+
 
   
 
@@ -133,6 +131,7 @@ function Home() {
     }];
 
 
+
     return (
     <React.Fragment>
       {console.log(articles)}
@@ -168,7 +167,7 @@ function Home() {
       </AppBar>
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
         <Typography variant="h3" align="center" color="#76aeb2" component="p">
-          Unsere Artikel
+          Deine EbuY Auswahl
         </Typography>
       </Container>
 

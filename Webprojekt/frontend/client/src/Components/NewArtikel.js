@@ -14,6 +14,7 @@ import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import { useEffect } from 'react';
 
+
 function HomeIcon(props) {
   return (
     <SvgIcon {...props}>
@@ -95,6 +96,14 @@ function NewArtikel() {
     }
   };
 
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => {
+    setIsOpen(true);
+  }
+
+  const closeModal = () => {
+    setIsOpen(false);
+  }
 
   return (
 
@@ -161,14 +170,31 @@ function NewArtikel() {
               rows={4}
             />
         </Box>
-        <br />
-        <Stack spacing={2} direction="row">
-          <Button variant="outlined" color="success" type="submit">Artikel aufgeben</Button>
-        </Stack>
-      </div>
         <div>
           <input onChange={e => setImage(e.target.value)} type="file" accept="image/*"></input>
         </div>
+        <br />
+        <Stack spacing={2} direction="row">
+          <Button className="button" onClick={openModal} variant="outlined" color="success" type="submit">Artikel aufgeben</Button>
+        </Stack>
+      </div>
+
+      <div className="App">
+      {isOpen && (
+        <>
+          <div className="overlay"></div>
+          <div className="modal">
+            <header className="modal__header">
+              <h3>EbuY - Es hat alles geklappt</h3>
+              <button onClick={closeModal} className="close-button">&times;</button>
+            </header>
+            <main className="modal__main">
+              <p>Dein Artikel wurde hochgeladen!</p>
+            </main>
+          </div>
+        </>
+      )}
+    </div>
       </form>
 
 </React.Fragment>

@@ -238,6 +238,7 @@ router.get('/search/available', async (req, res) => {
 
 //TODO get for bid !!!
 
+
 //alle user können ein gebot auf einen artikel abgeben(, wenn sie eingeloggt sind)
 router.post('/bid', async (req, res) => {
   const { articleID, price } = req.body
